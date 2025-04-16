@@ -39,6 +39,18 @@ Route::get('/skills', function(){
 
 });
 
+Route::get('/experiences', function(){
+
+    $experiences = Experience::orderBy('created_at')->get();
+
+    foreach($experiences as $key => $experience)
+    {
+        $experiences[$key]['user'] = User::where('id', $experience['user_id'])->first();
+    }
+
+    return $experiences;
+
+});
 Route::get('/types', function(){
 
     $types = Type::orderBy('title')->get();

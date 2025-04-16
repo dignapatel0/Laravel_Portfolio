@@ -8,6 +8,7 @@ use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\SkillsController;
 use App\Http\Controllers\TypesController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\EducationsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,6 +39,13 @@ Route::get('/console/logout', [ConsoleController::class, 'logout'])->middleware(
 Route::get('/console/login', [ConsoleController::class, 'loginForm'])->middleware('guest');
 Route::post('/console/login', [ConsoleController::class, 'login'])->middleware('guest');
 Route::get('/console/dashboard', [ConsoleController::class, 'dashboard'])->middleware('auth');
+
+Route::get('/console/educations/list', [EducationsController::class, 'list'])->middleware('auth');
+Route::get('/console/educations/add', [EducationsController::class, 'addForm'])->middleware('auth');
+Route::post('/console/educations/add', [EducationsController::class, 'add'])->middleware('auth');
+Route::get('/console/educations/edit/{education:id}', [EducationsController::class, 'editForm'])->where('education', '[0-9]+')->middleware('auth');
+Route::post('/console/educations/edit/{education:id}', [EducationsController::class, 'edit'])->where('education', '[0-9]+')->middleware('auth');
+Route::get('/console/educations/delete/{education:id}', [EducationsController::class, 'delete'])->where('education', '[0-9]+')->middleware('auth');
 
 Route::get('/console/projects/list', [ProjectsController::class, 'list'])->middleware('auth');
 Route::get('/console/projects/add', [ProjectsController::class, 'addForm'])->middleware('auth');

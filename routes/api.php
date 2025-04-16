@@ -46,6 +46,19 @@ Route::get('/types', function(){
 
 });
 
+Route::get('/educations', function(){
+
+    $educations = Education::orderBy('created_at')->get();
+
+    foreach($educations as $key => $education)
+    {
+        $educations[$key]['user'] = User::where('id', $education['user_id'])->first();
+    }
+
+    return $educations;
+
+});
+
 Route::get('/projects', function(){
 
     $projects = Project::orderBy('created_at')->get();

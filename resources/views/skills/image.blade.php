@@ -1,37 +1,41 @@
-@extends ('layout.console')
+@extends('layout.console')
 
-@section ('content')
+@section('content')
+<div class="add-container form-container">
+  <div class="add-card">
+    <h2 class="form-title">Skill Image</h2>
 
-<section class="w3-padding">
+    @if($skill->image)
+      <div class="image-preview">
+        <img
+          src="{{ asset('storage/'.$skill->image) }}"
+          alt="Current Skill Image"
+          class="preview-img"
+        >
+      </div>
+    @endif
 
-    <h2>Skill Image</h2>
+    <form
+      method="post"
+      action="/console/skills/image/{{ $skill->id }}"
+      enctype="multipart/form-data"
+      novalidate
+    >
+      @csrf
 
-    <div class="w3-margin-bottom">
-        @if($skill->image)
-            <img src="{{asset('storage/'.$skill->image)}}" width="200">
+      <div class="form-group">
+        <label for="image">Select New Image</label>
+        <input type="file" id="image" name="image" required>
+        @if ($errors->first('image'))
+          <div class="form-error">{{ $errors->first('image') }}</div>
         @endif
-    </div>
+      </div>
 
-    <form method="post" action="/console/skills/image/{{$skill->id}}" novalidate class="w3-margin-bottom" enctype="multipart/form-data">
-
-        @csrf
-
-        <div class="w3-margin-bottom">
-            <label for="image">Image:</label>
-            <input type="file" name="image" id="image" value="{{old('image')}}" required>
-            
-            @if ($errors->first('image'))
-                <br>
-                <span class="w3-text-red">{{$errors->first('image')}}</span>
-            @endif
-        </div>
-
-        <button type="submit" class="w3-button w3-green">Add Image</button>
-
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Upload Image</button>
+        <a href="/console/skills/list" class="btn btn-secondary">Back to Skill List</a>
+      </div>
     </form>
-
-    <a href="/console/skills/list">Back to Skill List</a>
-
-</section>
-
+  </div>
+</div>
 @endsection

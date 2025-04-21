@@ -1,78 +1,87 @@
-@extends ('layout.console')
+@extends('layout.console')
 
-@section ('content')
+@section('content')
+<div class="add-container form-container">
+  <div class="add-card">
+    <h2 class="form-title">Edit Project</h2>
 
-<section class="w3-padding">
+    <form method="post" action="/console/projects/edit/{{ $project->id }}" novalidate>
+      @csrf
 
-    <h2>Edit Project</h2>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          value="{{ old('title', $project->title) }}"
+          required
+        >
+        @if ($errors->first('title'))
+          <div class="form-error">{{ $errors->first('title') }}</div>
+        @endif
+      </div>
 
-    <form method="post" action="/console/projects/edit/{{$project->id}}" novalidate class="w3-margin-bottom">
+      <div class="form-group">
+        <label for="url">URL</label>
+        <input
+          type="url"
+          id="url"
+          name="url"
+          value="{{ old('url', $project->url) }}"
+        >
+        @if ($errors->first('url'))
+          <div class="form-error">{{ $errors->first('url') }}</div>
+        @endif
+      </div>
 
-        @csrf
+      <div class="form-group">
+        <label for="slug">Slug</label>
+        <input
+          type="text"
+          id="slug"
+          name="slug"
+          value="{{ old('slug', $project->slug) }}"
+          required
+        >
+        @if ($errors->first('slug'))
+          <div class="form-error">{{ $errors->first('slug') }}</div>
+        @endif
+      </div>
 
-        <div class="w3-margin-bottom">
-            <label for="title">Title:</label>
-            <input type="title" name="title" id="title" value="{{old('title', $project->title)}}" required>
-            
-            @if ($errors->first('title'))
-                <br>
-                <span class="w3-text-red">{{$errors->first('title')}}</span>
-            @endif
-        </div>
+      <div class="form-group">
+        <label for="content">Content</label>
+        <textarea
+          id="content"
+          name="content"
+          required
+        >{{ old('content', $project->content) }}</textarea>
+        @if ($errors->first('content'))
+          <div class="form-error">{{ $errors->first('content') }}</div>
+        @endif
+      </div>
 
-        <div class="w3-margin-bottom">
-            <label for="url">URL:</label>
-            <input type="url" name="url" id="url" value="{{old('url', $project->url)}}">
+      <div class="form-group">
+        <label for="type_id">Type</label>
+        <select id="type_id" name="type_id" required>
+          <option value="">— select —</option>
+          @foreach($types as $type)
+            <option
+              value="{{ $type->id }}"
+              {{ old('type_id', $project->type_id) == $type->id ? 'selected' : '' }}
+            >{{ $type->title }}</option>
+          @endforeach
+        </select>
+        @if ($errors->first('type_id'))
+          <div class="form-error">{{ $errors->first('type_id') }}</div>
+        @endif
+      </div>
 
-            @if ($errors->first('url'))
-                <br>
-                <span class="w3-text-red">{{$errors->first('url')}}</span>
-            @endif
-        </div>
-
-        <div class="w3-margin-bottom">
-            <label for="slug">Slug:</label>
-            <input type="text" name="slug" id="slug" value="{{old('slug', $project->slug)}}" required>
-
-            @if ($errors->first('slug'))
-                <br>
-                <span class="w3-text-red">{{$errors->first('slug')}}</span>
-            @endif
-        </div>
-
-        <div class="w3-margin-bottom">
-            <label for="content">Content:</label>
-            <textarea name="content" id="content" required>{{old('content', $project->content)}}</textarea>
-
-            @if ($errors->first('content'))
-                <br>
-                <span class="w3-text-red">{{$errors->first('content')}}</span>
-            @endif
-        </div>
-
-        <div class="w3-margin-bottom">
-            <label for="type_id">Type:</label>
-            <select name="type_id" id="type_id">
-                <option></option>
-                @foreach($types as $type)
-                    <option value="{{$type->id}}"
-                        {{$type->id == old('type_id', $project->type_id) ? 'selected' : ''}}>
-                        {{$type->title}}
-                    </option>
-                @endforeach
-            </select>
-            @if ($errors->first('type_id'))
-                <br>
-                <span class="w3-text-red">{{$errors->first('type_id')}}</span>
-            @endif
-        </div>
-
-        <button type="submit" class="w3-button w3-green">Edit Project</button>
-
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <a href="/console/projects/list" class="btn btn-secondary">Back to Project List</a>
+      </div>
     </form>
-
-    <a href="/console/projects/list">Back to Project List</a>
-
-</section>
-
+  </div>
+</div>
 @endsection

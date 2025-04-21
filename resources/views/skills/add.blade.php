@@ -1,41 +1,45 @@
-@extends ('layout.console')
+@extends('layout.console')
 
-@section ('content')
+@section('content')
+<div class="add-container form-container">
+  <div class="add-card">
+    <h2 class="form-title">Add Skill</h2>
 
-<section class="w3-padding">
+    <form method="post" action="/console/skills/add" novalidate>
+      @csrf
 
-    <h2>Add Skill</h2>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          value="{{ old('title') }}"
+          required
+        >
+        @if ($errors->first('title'))
+          <div class="form-error">{{ $errors->first('title') }}</div>
+        @endif
+      </div>
 
-    <form method="post" action="/console/skills/add" novalidate class="w3-margin-bottom">
+      <div class="form-group">
+        <label for="url">URL</label>
+        <input
+          type="url"
+          id="url"
+          name="url"
+          value="{{ old('url') }}"
+        >
+        @if ($errors->first('url'))
+          <div class="form-error">{{ $errors->first('url') }}</div>
+        @endif
+      </div>
 
-        @csrf
-
-        <div class="w3-margin-bottom">
-            <label for="title">Title:</label>
-            <input type="title" name="title" id="title" value="{{old('title')}}" required>
-            
-            @if ($errors->first('title'))
-                <br>
-                <span class="w3-text-red">{{$errors->first('title')}}</span>
-            @endif
-        </div>
-
-        <div class="w3-margin-bottom">
-            <label for="url">URL:</label>
-            <input type="url" name="url" id="url" value="{{old('url')}}">
-
-            @if ($errors->first('url'))
-                <br>
-                <span class="w3-text-red">{{$errors->first('url')}}</span>
-            @endif
-        </div>
-
-        <button type="submit" class="w3-button w3-green">Add Skill</button>
-
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Add Skill</button>
+        <a href="/console/skills/list" class="btn btn-secondary">Back to Skill List</a>
+      </div>
     </form>
-
-    <a href="/console/skills/list">Back to Skill List</a>
-
-</section>
-
+  </div>
+</div>
 @endsection

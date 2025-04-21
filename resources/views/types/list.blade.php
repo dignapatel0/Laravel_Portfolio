@@ -1,28 +1,39 @@
-@extends ('layout.console')
+@extends('layout.console')
 
-@section ('content')
-
-<section class="w3-padding">
-
+@section('content')
+<div class="list-page">
+  <!-- Header -->
+  <div class="list-header">
     <h2>Manage Types</h2>
+    <a href="/console/types/add" class="btn btn-green">+ New Type</a>
+  </div>
 
-    <table class="w3-table w3-stripped w3-bordered w3-margin-bottom">
-        <tr class="w3-red">
-            <th>Name</th>
-            <th></th>
-            <th></th>
+  <div class="table-container">
+    <table class="list-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th colspan="2" class="actions">Actions</th>
         </tr>
-        <?php foreach($types as $type): ?>
-            <tr>
-                <td>{{$type->title}}</td>
-                <td><a href="/console/types/edit/{{$type->id}}">Edit</a></td>
-                <td><a href="/console/types/delete/{{$type->id}}">Delete</a></td>
-            </tr>
-        <?php endforeach; ?>
+      </thead>
+      <tbody>
+        @foreach($types as $type)
+          <tr>
+            <td>{{ $type->title }}</td>
+            <td>
+              <a href="/console/types/edit/{{ $type->id }}" class="action-edit">
+                Edit
+              </a>
+            </td>
+            <td>
+              <a href="/console/types/delete/{{ $type->id }}" class="action-delete">
+                Delete
+              </a>
+            </td>
+          </tr>
+        @endforeach
+      </tbody>
     </table>
-
-    <a href="/console/types/add" class="w3-button w3-green">New Type</a>
-
-</section>
-
+  </div>
+</div>
 @endsection

@@ -1,31 +1,32 @@
-@extends ('layout.console')
+@extends('layout.console')
 
-@section ('content')
+@section('content')
+<div class="add-container form-container">
+  <div class="add-card">
+    <h2 class="form-title">Edit Type</h2>
 
-<section class="w3-padding">
+    <form method="post" action="/console/types/edit/{{ $type->id }}" novalidate>
+      @csrf
 
-    <h2>Edit Type</h2>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          value="{{ old('title', $type->title) }}"
+          required
+        >
+        @if ($errors->first('title'))
+          <div class="form-error">{{ $errors->first('title') }}</div>
+        @endif
+      </div>
 
-    <form method="post" action="/console/types/edit/{{$type->id}}" novalidate class="w3-margin-bottom">
-
-        @csrf
-
-        <div class="w3-margin-bottom">
-            <label for="title">Title:</label>
-            <input type="text" name="title" id="title" value="{{old('title', $type->title)}}" required>
-            
-            @if ($errors->first('title'))
-                <br>
-                <span class="w3-text-red">{{$errors->first('title')}}</span>
-            @endif
-        </div>
-
-        <button type="submit" class="w3-button w3-green">Edit Type</button>
-
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <a href="/console/types/list" class="btn btn-secondary">Back to Type List</a>
+      </div>
     </form>
-
-    <a href="/console/types/list">Back to Type List</a>
-
-</section>
-
+  </div>
+</div>
 @endsection

@@ -1,3 +1,4 @@
+
 /* Base Setup */
 body {
     margin: 0;
@@ -52,7 +53,7 @@ a:hover {
     background-color: white;
     padding: 2rem;
     border-radius: 1rem;
-    max-width: 700px;
+    max-width: 800px;
     margin: 2rem auto;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
     text-align: center;
@@ -63,39 +64,51 @@ a:hover {
     line-height: 1.8;
 }
 
-/* Skills Section */
-.skills-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.25rem;
-    list-style: none;
-    padding: 0;
+/* Experience Section */
+.experience-section {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
-.skill-item {
-    background-color: #E0F2FE;
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.experience-card {
+    background-color: #F0F9FF;
+    padding: 1.5rem;
     border-radius: 1rem;
-    padding: 1rem;
-    width: 140px;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     transition: transform 0.2s ease;
 }
 
-.skill-item:hover {
-    transform: scale(1.05);
+.experience-card:hover {
+    transform: scale(1.02);
 }
 
-.skill-link {
-    font-weight: 600;
+.experience-title {
+    font-size: 1.25rem;
+    font-weight: 700;
     color: #1E40AF;
+    margin-bottom: 0.5rem;
 }
 
-.skill-image {
-    width: 100%;
-    margin-top: 0.5rem;
-    border-radius: 0.5rem;
+.experience-company {
+    font-weight: 600;
+    color: #1F2937;
+    margin-bottom: 0.25rem;
+}
+
+.experience-meta {
+    font-size: 0.95rem;
+    color: #4B5563;
+    line-height: 1.6;
 }
 
 /* Projects Section */
@@ -187,6 +200,81 @@ a:hover {
     background-color: #2563EB;
 }
 
+/* Skills Section */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+    list-style: none;
+    padding: 0;
+}
+
+.skill-item {
+    background-color: #E0F2FE;
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 140px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.skill-item:hover {
+    transform: scale(1.05);
+}
+
+.skill-link {
+    font-weight: 600;
+    color: #1E40AF;
+}
+
+.skill-image {
+    width: 100%;
+    margin-top: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+/* Education Section */
+.education-section {
+    padding: 2rem 1rem;
+    max-width: 700px;
+    margin: 2rem auto;
+}
+
+.education-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.education-degree {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1F2937;
+    margin-bottom: 0.5rem;
+}
+
+.education-school {
+    font-size: 1rem;
+    color: #374151;
+    margin-bottom: 0.25rem;
+}
+
+.education-dates {
+    font-size: 0.9rem;
+    color: #6B7280;
+    margin-bottom: 0.75rem;
+}
+
+.education-description {
+    font-size: 1rem;
+    color: #4B5563;
+}
+
 /* Contact Section */
 .contact-section {
     background-color: #EFF6FF;
@@ -270,3 +358,5 @@ a:hover {
         height: 160px;
     }
 }
+
+

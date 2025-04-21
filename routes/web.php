@@ -2,6 +2,9 @@
 
 use App\Models\Project;
 use App\Models\Skill;
+use App\Models\Type;
+use App\Models\Education;
+use App\Models\Experience;
 
 use App\Http\Controllers\ConsoleController;
 use App\Http\Controllers\ProjectsController;
@@ -27,6 +30,8 @@ Route::get('/', function () {
     return view('welcome', [
         'projects' => Project::all(),
         'skills' => Skill::all(),
+        'experiences' => Experience::all(),
+        'educations' => Education::all(),
     ]);
 });
 

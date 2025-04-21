@@ -10,6 +10,24 @@
     </p>
 </section>
 
+<!-- Experience Section -->
+<section class="experience-section">
+    <h2 class="section-title">Experience</h2>
+    <div class="experience-list">
+        @foreach ($experiences as $experience)
+            <div class="experience-card">
+                <h3 class="experience-title">{{ $experience->job_title }}</h3>
+                <p class="experience-company">{{ $experience->company_name }} — {{ $experience->location }}</p>
+                <p class="experience-meta">
+                    {{ $experience->employment_type }} <br>
+                    {{ $experience->start_date->format('M Y') }} - 
+                    {{ $experience->end_date ? $experience->end_date->format('M Y') : 'Present' }}
+                </p>
+            </div>
+        @endforeach
+    </div>
+</section>
+
 <!-- Projects Section -->
 <section class="projects-section">
     <h2 class="section-title">Projects</h2>
@@ -44,13 +62,30 @@
         @foreach ($skills as $skill)
             <li class="skill-item">
                 <a href="{{$skill->url}}" class="skill-link">{{$skill->title}}</a>
-                
                 @if ($skill->image)
                     <img src="{{asset('storage/'.$skill->image)}}" alt="{{$skill->title}}" class="skill-image" width="100">
                 @endif
             </li>
         @endforeach
     </ul>
+</section>
+
+<!-- Education Section -->
+<section class="education-section">
+    <h2 class="section-title">Education</h2>
+    @foreach ($educations as $education)
+        <div class="education-card">
+            <h3 class="education-degree">{{ $education->course_name }}</h3>
+            <p class="education-school">{{ $education->institution_name }} — {{ $education->location }}</p>
+            <p class="education-dates">
+                {{ \Carbon\Carbon::parse($education->start_date)->format('M Y') }} -
+                {{ $education->end_date ? \Carbon\Carbon::parse($education->end_date)->format('M Y') : 'Ongoing' }}
+            </p>
+            @if ($education->description)
+                <p class="education-description">{{ $education->description }}</p>
+            @endif
+        </div>
+    @endforeach
 </section>
 
 <!-- Contact Section -->
@@ -62,5 +97,6 @@
     </p>
 </section>
 
-
 @endsection
+
+

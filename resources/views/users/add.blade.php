@@ -1,61 +1,50 @@
-@extends ('layout.console')
+@extends('layout.console')
 
-@section ('content')
+@section('content')
+<div class="add-container form-container ">
+    <div class="add-card">
+        <h2 class="form-title">Add User</h2>
 
-<section class="w3-padding">
+        <form method="post" action="/console/users/add" novalidate>
+            @csrf
 
-    <h2>Add User</h2>
-
-    <form method="post" action="/console/users/add" novalidate class="w3-margin-bottom">
-
-        @csrf
-
-        <div class="w3-margin-bottom">
-            <label for="first">First Name:</label>
-            <input type="text" name="first" id="first" value="{{old('first')}}" required>
-            
+            <div class="form-group">
+            <label for="first">First Name</label>
+            <input type="text" id="first" name="first" value="{{ old('first') }}" required>
             @if ($errors->first('first'))
-                <br>
-                <span class="w3-text-red">{{$errors->first('first')}}</span>
+                <div class="form-error">{{ $errors->first('first') }}</div>
             @endif
-        </div>
+            </div>
 
-        <div class="w3-margin-bottom">
-            <label for="last">Last Name:</label>
-            <input type="text" name="last" id="last" value="{{old('last')}}" required>
-
+            <div class="form-group">
+            <label for="last">Last Name</label>
+            <input type="text" id="last" name="last" value="{{ old('last') }}" required>
             @if ($errors->first('last'))
-                <br>
-                <span class="w3-text-red">{{$errors->first('last')}}</span>
+                <div class="form-error">{{ $errors->first('last') }}</div>
             @endif
-        </div>
+            </div>
 
-        <div class="w3-margin-bottom">
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" value="{{old('email')}}" required>
-
+            <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" value="{{ old('email') }}" required>
             @if ($errors->first('email'))
-                <br>
-                <span class="w3-text-red">{{$errors->first('email')}}</span>
+                <div class="form-error">{{ $errors->first('email') }}</div>
             @endif
-        </div>
+            </div>
 
-        <div class="w3-margin-bottom">
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password">
-
+            <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
             @if ($errors->first('password'))
-                <br>
-                <span class="w3-text-red">{{$errors->first('password')}}</span>
+                <div class="form-error">{{ $errors->first('password') }}</div>
             @endif
+            </div>
+
+            <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Add User</button>
+            <a href="/console/users/list" class="btn btn-secondary">Back to User List</a>
+            </div>
+        </form>
         </div>
-
-        <button type="submit" class="w3-button w3-green">Add User</button>
-
-    </form>
-
-    <a href="/console/users/list">Back to User List</a>
-
-</section>
-
+</div>
 @endsection

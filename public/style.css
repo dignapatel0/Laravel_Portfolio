@@ -1,0 +1,314 @@
+/* public/css/login.css */
+
+body {
+    background: #ffffff;
+  }
+  
+  .login-page {
+    top: 0;
+    min-height: 65vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .login-card {
+    width: 360px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    padding: 40px;
+    font-family: sans-serif;
+  }
+  
+  .login-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .login-header h1 {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+    font-weight: 600;
+  }
+  
+  .login-header p {
+    color: #777;
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+  }
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+  
+  .error {
+    color: #e74c3c;
+    font-size: 12px;
+    margin-top: 4px;
+  }
+  
+  .btn-primary {
+    width: 100%;
+    background: #3498db;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background .2s;
+  }
+  
+  .btn-primary:hover {
+    background: #2980b9;
+  }
+  /* public/css/dashboard.css */
+
+.dashboard-page {
+    min-height: 100vh;
+    padding: 40px 20px;
+    background: #f9f9f9;
+    font-family: sans-serif;
+    box-sizing: border-box;
+  }
+  
+  .dashboard-header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  
+  .dashboard-header h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #333;
+  }
+  
+  .dashboard-header p {
+    margin-top: 8px;
+    color: #555;
+    font-size: 16px;
+  }
+  
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .dashboard-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px 16px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform .15s, box-shadow .15s;
+  }
+  
+  .dashboard-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  }
+  
+  .card-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  
+  .card-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  
+  .card-desc {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  /* Special styling for logout card */
+  .logout-card .card-icon {
+    color: #e74c3c;
+  }
+  .logout-card:hover {
+    box-shadow: 0 8px 24px rgba(231,76,60,0.2);
+  }
+  
+  /* public/css/projects.css */
+
+.list-page {
+    padding: 40px 20px;
+    background: #f9f9f9;
+    font-family: sans-serif;
+  }
+  
+  .list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  
+  .list-header h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .btn-green {
+    background: #27ae60;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background .2s;
+  }
+  
+  .btn-green:hover {
+    background: #1e8449;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .list-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  
+  .list-table thead {
+    background: #2980b9;
+    color: #fff;
+  }
+  
+  .list-table th,
+  .list-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .list-table tbody tr:nth-child(even) {
+    background: #f7f7f7;
+  }
+  
+  .list-table tbody tr:hover {
+    background: #e8f4fd;
+  }
+  
+  .list-table th.actions {
+    text-align: center;
+  }
+  
+  .thumb {
+    height: 40px;
+    border-radius: 4px;
+  }
+  
+  .slug-link {
+    color: #2980b9;
+    text-decoration: none;
+  }
+  
+  .slug-link:hover {
+    text-decoration: underline;
+  }
+  
+  .action-view,
+  .action-edit,
+  .action-delete {
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+  }
+  
+  .action-view {
+    background: #3498db;
+    color: #fff;
+  }
+  
+  .action-view:hover {
+    background: #217dbb;
+  }
+  
+  .action-edit {
+    background: #f1c40f;
+    color: #fff;
+  }
+  
+  .action-edit:hover {
+    background: #d4ac0d;
+  }
+  
+  .action-delete {
+    background: #e74c3c;
+    color: #fff;
+  }
+  
+  .action-delete:hover {
+    background: #c0392b;
+  }
+  
+  /* add files */
+  .add-container {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: linear-gradient(135deg, #f5f7fa, #c3cfe2); */
+  }
+  
+  /* White card container for all forms */
+    .add-card {
+        width: 400px;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        padding: 40px;
+        font-family: sans-serif;
+  }

@@ -7,7 +7,7 @@
         <title>My Portfolio</title>
 
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link rel="stylesheet" href="{{url('app.css')}}">
+        <link rel="stylesheet" href="{{url('style.css')}}">
 
         <script src="{{url('app.js')}}"></script>
         

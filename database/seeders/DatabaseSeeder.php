@@ -29,9 +29,9 @@ class DatabaseSeeder extends Seeder
         
         User::factory()->count(2)->create();
         Type::factory()->count(3)->create();
-        Education::factory()->count(3)->create();        
-        Project::factory()->count(6)->create();
+        Education::factory()->count(2)->create();        
+        Project::factory()->count(3)->create();
         Skill::factory()->count(6)->create(); 
-        Experience::factory()->count(3)->create(); 
+        Experience::factory()->count(2)->create(); 
     }
 }

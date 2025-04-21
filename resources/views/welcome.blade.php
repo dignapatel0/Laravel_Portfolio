@@ -6,7 +6,7 @@
 <section class="about-section">
     <h2 class="section-title">About Me!</h2>
     <p class="section-text">
-        Quisque felis ex, pellentesque vel elementum eu, bibendum vel massa. Donec id feugiat erat. Aliquam commodo rutrum velit, vitae vestibulum purus ullamcorper vestibulum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+    Hi there! I'm a passionate full-stack web developer with a strong focus on creating modern, user-friendly applications. I enjoy building everything from small business sites to rich interactive web apps. My stack includes technologies like Laravel, React, Node.js, and PostgreSQL.
     </p>
 </section>
 

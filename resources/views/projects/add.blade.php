@@ -5,7 +5,7 @@
   <div class="add-card">
     <h2 class="form-title">Add Project</h2>
 
-    <form method="post" action="/console/projects/add" novalidate>
+    <form method="post" action="/console/projects/add" `    `>
       @csrf
 
       <div class="form-group">
@@ -66,12 +66,10 @@
         <select id="type_id" name="type_id">
           <option value="">— select —</option>
           @foreach($types as $type)
-            <option
-              value="{{ $type->id }}"
-              {{ old('type_id') == $type->id ? 'selected' : '' }}
-            >
-              {{ $type->title }}
-            </option>
+          <option value="{{$type->id}}"
+                        {{$type->id == old('type_id') ? 'selected' : ''}}>
+                        {{$type->title}}
+                    </option>
           @endforeach
         </select>
         @if ($errors->first('type_id'))

@@ -2,97 +2,65 @@
 
 @section ('content')
 
-<section class="w3-padding">
-        
-    <h2 class="w3-text-blue">About Me!</h2>
-
-    <p>
-        Quisque felis ex, pellentesque vel elementum eu, bibendum vel massa. Donec id feugiat 
-        erat. Aliquam commodo rutrum velit, vitae vestibulum purus ullamcorper vestibulum. Orci 
-        varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+<!-- About Me Section -->
+<section class="about-section">
+    <h2 class="section-title">About Me!</h2>
+    <p class="section-text">
+        Quisque felis ex, pellentesque vel elementum eu, bibendum vel massa. Donec id feugiat erat. Aliquam commodo rutrum velit, vitae vestibulum purus ullamcorper vestibulum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
     </p>
-
-    <h3>My Skills</h3>
-
-    <ul>
-
-        @foreach ($skills as $skill)
-
-            <li>
-
-                <a href="{{$skill->url}}">
-                    {{$skill->title}}
-                </a>
-            
-                @if ($skill->image)
-                    <img src="{{asset('storage/'.$skill->image)}}" width="100">
-                @endif
-
-            </li>
-        
-        @endforeach 
-
-    </ul>
-
 </section>
 
-<hr>
-
-<section class="w3-padding w3-container">
-
-    <h2 class="w3-text-blue">Projects</h2>
-
-    @foreach ($projects as $project)
-
-        <div class="w3-card w3-margin">
-
-            <div class="w3-container w3-blue">
-
-                <h3>{{$project->title}}</h3>
-
-            </div>
-            
-            @if ($project->image)
-                <div class="w3-container w3-margin-top">
-                    <img src="{{asset('storage/'.$project->image)}}" width="200">
+<!-- Projects Section -->
+<section class="projects-section">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+        @foreach ($projects as $project)
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">{{$project->title}}</h3>
                 </div>
-            @endif
-
-            <div class="w3-container w3-padding">
-
-                @if ($project->url)
-                    View Project: <a href="{{$project->url}}">{{$project->url}}</a>
+                @if ($project->image)
+                    <img src="{{asset('storage/'.$project->image)}}" alt="{{$project->title}}" class="project-image">
                 @endif
-
-                <p>
-                    Posted: {{$project->created_at->format('M j, Y')}}
-                    <br>
-                    Type: {{$project->type->title}}
-                </p>
-
-                <a href="/project/{{$project->slug}}" class="w3-button w3-green">View Project Details</a>
-
+                <div class="project-details">
+                    @if ($project->url)
+                        <p class="project-url">View Project: <a href="{{$project->url}}" class="project-link">{{$project->url}}</a></p>
+                    @endif
+                    <p class="project-meta">
+                        Posted: {{$project->created_at->format('M j, Y')}}<br>
+                        Type: {{$project->type->title}}
+                    </p>
+                    <a href="/project/{{$project->slug}}" class="view-details-btn">View Project Details</a>
+                </div>
             </div>
-        
-
-        </div>
-
-    @endforeach
-
+        @endforeach
+    </div>
 </section>
 
-<hr>
+<!-- Skills Section -->
+<section class="skills-section">
+    <h3 class="section-title">My Skills</h3>
+    <ul class="skills-list">
+        @foreach ($skills as $skill)
+            <li class="skill-item">
+                <a href="{{$skill->url}}" class="skill-link">{{$skill->title}}</a>
+                
+                @if ($skill->image)
+                    <img src="{{asset('storage/'.$skill->image)}}" alt="{{$skill->title}}" class="skill-image" width="100">
+                @endif
+            </li>
+        @endforeach
+    </ul>
+</section>
 
-<section class="w3-padding">
-
-    <h2 class="w3-text-blue">Contact Me</h2>
-
-    <p>
-        Phone: 111.222.3333
-        <br>
-        Email: <a href="mailto:email@address.com">email@address.com</a>
+<!-- Contact Section -->
+<section class="contact-section">
+    <h2 class="section-title">Contact Me</h2>
+    <p class="contact-info">
+        <i class="fas fa-phone-alt"></i> Phone: 111.222.3333<br>
+        <i class="fas fa-envelope"></i> Email: <a href="mailto:email@address.com" class="contact-link">email@email.com</a>
     </p>
-
 </section>
+
 
 @endsection

@@ -55,7 +55,7 @@
 
 ### Live Video Demo of Front end
 
-[Watch the video](./_readme/demo.gif)
+[Watch the video](./_readme/demo.mp4)
 
 ---
 

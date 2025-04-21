@@ -16,6 +16,12 @@
       <div class="card-desc">Manage all your projects</div>
     </a>
 
+    <a href="/console/types/list" class="dashboard-card">
+      <div class="card-icon">🔖</div>
+      <div class="card-title">Types</div>
+      <div class="card-desc">Configure content types</div>
+    </a>
+    
     <a href="/console/skills/list" class="dashboard-card">
       <div class="card-icon">💡</div>
       <div class="card-title">Skills</div>

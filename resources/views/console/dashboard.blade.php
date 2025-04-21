@@ -5,7 +5,7 @@
   <!-- Header -->
   <div class="dashboard-header">
     <h1>Console Dashboard</h1>
-    <p>Select an action below:</p>
+
   </div>
 
   <!-- Grid of Cards -->
@@ -26,6 +26,12 @@
       <div class="card-icon">🚀</div>
       <div class="card-title">Experiences</div>
       <div class="card-desc">Edit experience entries</div>
+    </a>
+
+    <a href="/console/educations/list" class="dashboard-card">
+      <div class="card-icon">🎓</div>
+      <div class="card-title">Educations</div>
+      <div class="card-desc">Manage education entries</div>
     </a>
 
     <a href="/console/users/list" class="dashboard-card">

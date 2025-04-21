@@ -1,71 +1,87 @@
-@extends ('layout.console')
+@extends('layout.console')
 
-@section ('content')
+@section('content')
+<div class="add-container form-container">
+  <div class="add-card">
+    <h2 class="form-title">Add Education</h2>
 
-<section class="w3-padding">
+    <form method="post" action="/console/educations/add" novalidate>
+      @csrf
 
-    <h2>Add Education</h2>
+      <div class="form-group">
+        <label for="institution_name">Institution Name</label>
+        <input
+          type="text"
+          id="institution_name"
+          name="institution_name"
+          value="{{ old('institution_name') }}"
+          required
+        >
+        @if ($errors->first('institution_name'))
+          <div class="form-error">{{ $errors->first('institution_name') }}</div>
+        @endif
+      </div>
 
-    <form method="post" action="/console/educations/add" novalidate class="w3-margin-bottom">
+      <div class="form-group">
+        <label for="course_name">Course Name</label>
+        <input
+          type="text"
+          id="course_name"
+          name="course_name"
+          value="{{ old('course_name') }}"
+          required
+        >
+        @if ($errors->first('course_name'))
+          <div class="form-error">{{ $errors->first('course_name') }}</div>
+        @endif
+      </div>
 
-        @csrf
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input
+          type="text"
+          id="location"
+          name="location"
+          value="{{ old('location') }}"
+          required
+        >
+        @if ($errors->first('location'))
+          <div class="form-error">{{ $errors->first('location') }}</div>
+        @endif
+      </div>
 
-        <div class="w3-margin-bottom">
-            <label for="institution_name">Institution Name:</label>
-            <input type="text" name="institution_name" id="institution_name" value="{{ old('institution_name') }}" required>
+      <div class="form-group">
+        <label for="start_date">Start Date</label>
+        <input
+          type="date"
+          id="start_date"
+          name="start_date"
+          value="{{ old('start_date') }}"
+          required
+        >
+        @if ($errors->first('start_date'))
+          <div class="form-error">{{ $errors->first('start_date') }}</div>
+        @endif
+      </div>
 
-            @if ($errors->first('institution_name'))
-                <br>
-                <span class="w3-text-red">{{ $errors->first('institution_name') }}</span>
-            @endif
-        </div>
+      <div class="form-group">
+        <label for="end_date">End Date</label>
+        <input
+          type="date"
+          id="end_date"
+          name="end_date"
+          value="{{ old('end_date') }}"
+        >
+        @if ($errors->first('end_date'))
+          <div class="form-error">{{ $errors->first('end_date') }}</div>
+        @endif
+      </div>
 
-        <div class="w3-margin-bottom">
-            <label for="course_name">Course Name:</label>
-            <input type="text" name="course_name" id="course_name" value="{{ old('course_name') }}" required>
-
-            @if ($errors->first('course_name'))
-                <br>
-                <span class="w3-text-red">{{ $errors->first('course_name') }}</span>
-            @endif
-        </div>
-
-        <div class="w3-margin-bottom">
-            <label for="location">Location:</label>
-            <input type="text" name="location" id="location" value="{{ old('location') }}" required>
-
-            @if ($errors->first('location'))
-                <br>
-                <span class="w3-text-red">{{ $errors->first('location') }}</span>
-            @endif
-        </div>
-
-        <div class="w3-margin-bottom">
-            <label for="start_date">Start Date:</label>
-            <input type="date" name="start_date" id="start_date" value="{{ old('start_date') }}" required>
-
-            @if ($errors->first('start_date'))
-                <br>
-                <span class="w3-text-red">{{ $errors->first('start_date') }}</span>
-            @endif
-        </div>
-
-        <div class="w3-margin-bottom">
-            <label for="end_date">End Date:</label>
-            <input type="date" name="end_date" id="end_date" value="{{ old('end_date') }}">
-
-            @if ($errors->first('end_date'))
-                <br>
-                <span class="w3-text-red">{{ $errors->first('end_date') }}</span>
-            @endif
-        </div>
-
-        <button type="submit" class="w3-button w3-green">Add Education</button>
-
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Add Education</button>
+        <a href="/console/educations/list" class="btn btn-secondary">Back to Education List</a>
+      </div>
     </form>
-
-    <a href="/console/educations/list">Back to Education List</a>
-
-</section>
-
+  </div>
+</div>
 @endsection
